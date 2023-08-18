@@ -1,0 +1,36 @@
+<h1>{{title}}</h1>
+<div class="c-report">
+	<body>
+		<h1><%= title %></h1>
+		<p>Welcome to <%= title %></p>
+	</body>
+	<form action="/result" method="post">
+		<label for="fname">First name:</label>
+		<input type="text" id="fname" name="fname"><br><br>
+		<label for="lname">Last name:</label>
+		<input type="text" id="lname" name="lname"><br><br>
+		<input type="submit" value="Submit">
+	</form>
+
+	<div class="c-report__content">
+		<header class="c-report__header">
+			<h2>{{reviewerName}}</h2>
+			<date class="c-report__date">
+				{{reviewDate}}
+			</date>
+		</header>
+		<div class="c-report__text">
+			<div class="c-report__section">
+				<h3 class="c-report__section-title">Feedback for author(s)</h3>
+				<p>{{{authorFeedbackText}}}</p>
+			</div>
+			<div class="c-report__section">
+				<h3 class="c-report__section-title">Feedback for editor</h3>
+				<p>{{{editorFeedbackText}}}</p>
+			</div>
+		</div>
+	</div>
+	<div>
+
+	</div>
+</div>
