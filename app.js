@@ -3,9 +3,11 @@ import {dirname, join} from 'path';
 import {fileURLToPath} from 'url';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
+import jsforce from 'jsforce';
 
 import {indexRouter} from './routes/index.js';
 import {resultRouter} from './routes/result.js';
+import {bulkloadRouter} from './routes/bulkload.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -24,6 +26,7 @@ app.use(express.static(join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/result', resultRouter);
+app.use('/bulkload', bulkloadRouter);
 
 app.use((req, res, next) => {
     const error = new Error(`Not Found - ${req.originalUrl}`);
