@@ -38,7 +38,7 @@ router.post('/',function(req,res,next){
 
     conn.bulk.pollTimeout = 25000; // Bulk timeout can be specified globally on the connection object
 
-    conn.sobject("Lead").insertBulk([{LastName: "chuntika bummmm"}], function(err, rets) {
+    conn.sobject("PTW_Inspection_Report__c").insertBulk([{Name__c: "chuntika bummmm"}], function(err, rets) {
       console.log("request body: ",req.body);
       console.log("rets: ",rets.length);
         if (err) { return console.error(err); }
