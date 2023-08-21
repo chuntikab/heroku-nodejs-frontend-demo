@@ -44,7 +44,6 @@ router.post('/',function(req,res,next){
     conn.sobject("Lead").insertBulk(cars, function(err, rets) {
       // conn.sobject("Lead").insertBulk([req.body], function(err, rets) {
       console.log("request body: ",req.body);
-      console.log("rets: ",rets.length);
         if (err) { return console.error(err); }
         for (var i=0; i < rets.length; i++) {
           if (rets[i].success) {
