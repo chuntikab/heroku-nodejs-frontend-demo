@@ -20,7 +20,7 @@ router.post('/',function(req,res,next){
   var Company = req.body.Company;
   var MobilePhone = req.body.MobilePhone;
 
-  const cars = new Array(req.body);
+  const leadslist = new Array(req.body);
   const str="Query More - ";
 
   var conn = new jsforce.Connection({
@@ -41,7 +41,7 @@ router.post('/',function(req,res,next){
 
     conn.bulk.pollTimeout = 25000; // Bulk timeout can be specified globally on the connection object
 
-    conn.sobject("Lead").insertBulk(cars, function(err, rets) {
+    conn.sobject("Lead").insertBulk(leadslist, function(err, rets) {
       // conn.sobject("Lead").insertBulk([req.body], function(err, rets) {
       console.log("request body: ",req.body);
         if (err) { return console.error(err); }
