@@ -17,7 +17,10 @@ router.post('/',function(req,res,next){
   var Name = req.body.Name;
   var FirstName = req.body.FirstName;
   var LastName = req.body.LastName;
+  var Company = req.body.Company;
+  var MobilePhone = req.body.MobilePhone;
 
+  const cars = new Array(req.body);
   const str="Query More - ";
 
   var conn = new jsforce.Connection({
@@ -38,7 +41,8 @@ router.post('/',function(req,res,next){
 
     conn.bulk.pollTimeout = 25000; // Bulk timeout can be specified globally on the connection object
 
-    conn.sobject("PTW_Inspection_Report__c").insertBulk([{Name__c: "chuntika bummmm"}], function(err, rets) {
+    conn.sobject("Lead").insertBulk(cars, function(err, rets) {
+      // conn.sobject("Lead").insertBulk([req.body], function(err, rets) {
       console.log("request body: ",req.body);
       console.log("rets: ",rets.length);
         if (err) { return console.error(err); }
@@ -53,7 +57,7 @@ router.post('/',function(req,res,next){
     });
   });
 
-  res.send('Name:' + FirstName + ' : ' + LastName +' : '+ Name);
+  res.send('Name:' + FirstName + ' : ' + LastName +' : '+ Name + ' : ' +Company + ' : ' + MobilePhone);
 });
 
 router.get('/', function (req, res, next) {
