@@ -5,7 +5,7 @@ import jsforce from 'jsforce';
 
 const router = new express.Router();
 
-//get function
+//get function testtt
 router.get('/', function(req, res, next) {
   var FirstName = req.param('FirstName');
   var LastName = req.param('LastName');
@@ -34,6 +34,7 @@ router.post('/',function(req,res,next){
       console.log("User ID: " + userInfo.id);
       console.log("Org ID: " + userInfo.organizationId);
       console.log(req.body);
+      
     conn.bulk.pollTimeout = 25000; // Bulk timeout can be specified globally on the connection object
 
     conn.sobject("Lead").insertBulk(req.body, function(err, rets) {
