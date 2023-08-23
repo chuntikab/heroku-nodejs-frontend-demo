@@ -10,4 +10,3 @@ router.get('/', function (req, res, next) {
 });
 
 export {router as indexRouter};
-//fffffffffffffffffffffffffffffffffffffffffff

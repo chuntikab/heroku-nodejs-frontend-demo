@@ -1,8 +1,9 @@
 <h1>{{title}}</h1>
 <div class="c-report">
 	<body>
-		<h1><%= title %></h1>
-		<p>Welcome to <%= title %></p>
+		<h1>Heroku</h1>
+		{{!-- <p>Welcome to <%= title %></p> --}}
+		<p>User input</p>
 	</body>
 	<form action="/result" method="post">
 		{{!-- <label for="Name">Name:</label>
@@ -16,6 +17,44 @@
 		<label for="MobilePhone">MobilePhone:</label>
 		<input type="text" id="MobilePhone" name="MobilePhone"><br><br>
 		<input type="submit" value="Submit">
+	</form>
+
+	<body>
+		<p>Query 1 record and update</p>
+	</body>
+	<form action="/bulkload/querymore" method="get">
+		<input type="submit" value="Query">
+		<div class="container-fluid">
+			<div class="row">
+				{{#each records}}
+						<div class="col m4 s12 l4">
+							<div class="card blue-grey darken-1 z-depth-4">
+								<div class="card-content white-text">
+									<span class="card-title">Name:{{Name__c}}</span>
+
+								</div>
+							</div>
+						</div>
+
+				{{/each}}
+
+			</div>
+
+		</div>
+	</form>
+	<form action="/bulkload/update" method="get">
+		<label for="Name__c">Name:</label>
+		<output type="text" id="res.Name__c" name="res.Name__c"><br><br>
+		<input type="submit" value="Update">
+	</form>
+
+	<body>
+		<p>Delete Record</p>
+	</body>
+	<form action="/bulkload/deleteaccount" method="post">
+		<label for="Id">Account Id:</label>
+		<input type="text" id="Id" name="Id"><br><br>
+		<input type="submit" value="Delete">
 	</form>
 
 	<div class="c-report__content">
