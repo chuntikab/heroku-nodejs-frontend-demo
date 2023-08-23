@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "rollup": "rollup",
     "clean": "rm -rf node_modules __lwr_cache__ site",
     "dev": "lwr dev",
     "dev:compat": "lwr dev --mode compat",
