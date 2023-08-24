@@ -18,7 +18,7 @@ export default {
             'process.env.NODE_ENV': JSON.stringify('development'),
         }),
         lwc(),
-    ],
+    ]
 
 	/** Node.js Front-end */
 	// input: './js/main.js',
