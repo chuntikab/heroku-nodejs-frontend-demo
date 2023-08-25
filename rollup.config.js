@@ -6,32 +6,32 @@ import replace from '@rollup/plugin-replace';
 export default {
 
 	/** LWC */
-	input: 'src/main.js',
+	// input: 'src/main.js',
 
-    output: {
-        file: 'dist/main.js',
-        format: 'esm',
-    },
+    // output: {
+    //     file: 'dist/main.js',
+    //     format: 'esm',
+    // },
 
-    plugins: [
-        replace({
-            'process.env.NODE_ENV': JSON.stringify('development'),
-        }),
-        lwc(),
-    ]
+    // plugins: [
+    //     replace({
+    //         'process.env.NODE_ENV': JSON.stringify('development'),
+    //     }),
+    //     lwc(),
+    // ]
 
 	/** Node.js Front-end */
-	// input: './js/main.js',
-	// output: {
-	// 	file: './public/js/main.js',
-	// 	name: 'bundle',
-	// 	format: 'iife',
-	// 	sourcemap: true
-	// },
-	// plugins: [
-	// 	nodeResolve(),
-	// 	babel({
-	// 		babelHelpers: 'bundled' 
-	// 	})
-	// ]
+	input: './js/main.js',
+	output: {
+		file: './public/js/main.js',
+		name: 'bundle',
+		format: 'iife',
+		sourcemap: true
+	},
+	plugins: [
+		nodeResolve(),
+		babel({
+			babelHelpers: 'bundled' 
+		})
+	]
 };
